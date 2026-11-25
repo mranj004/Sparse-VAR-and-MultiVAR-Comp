@@ -1,0 +1,19 @@
+---
+title: "004_RunVAR"
+output: html_document
+date: "2026-11-25"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+source("003_VAR_real.R")
+
+individual <- run_var_lasso()
+pooled <- run_var_lasso(mode = "pooled")
+
+knitr::kable(rbind(individual$metrics, pooled$metrics))
+```
+
